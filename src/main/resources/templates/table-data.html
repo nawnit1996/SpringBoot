@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/Application.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container-fluid" ng-app="myApp" ng-controller="viewProduct" ng-init=getCategory()>
+		<div ng-init=viewProducts()></div>
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+				Category <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li ng-repeat="data in categoryList"><a ng-bind="data.categoryName" href="#"></a></li>
+			</ul>
+		</div>
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+				SubCategory <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li ng-repeat="data in subCategoryList"><a ng-bind="data.subCategoryName" href="#"></a></li>
+			</ul>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Product ID</th>
+					<th>Product Name</th>
+					<th>Category</th>
+					<th>Sub Category</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="data in productList">
+					<td ng-bind="data.productID"></td>
+					<td ng-bind="data.productName"></td>
+					<td ng-bind="data.productCategory"></td>
+					<td ng-bind="data.productSubCategory"></td>
+					<td ng-bind="data.price"></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
